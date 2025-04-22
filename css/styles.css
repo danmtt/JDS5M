@@ -1,0 +1,383 @@
+/* === styles.css === */
+
+/* --- Global Variables and Resets --- */
+:root {
+    --jd-green: #367C2B; /* John Deere Green */
+    --jd-yellow: #FFDE00; /* John Deere Yellow */
+    --tooltip-bg: #FFFFE0; /* Light yellow for tooltips */
+    --tooltip-border: #cccccc;
+    --light-gray: #f0f0f0;
+    --dark-gray: #333;
+    --link-bg: #ffffff;
+    --link-hover-bg: #e9e9e9;
+    --border-color: #cccccc;
+    --grid-gap: 20px; /* Space between grid items */
+}
+
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0; /* Reset padding */
+    background-color: var(--light-gray);
+    display: flex; /* Use flex for body layout where needed */
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh; /* Add padding at the top to prevent content from going under the fixed button */
+    padding-top: 60px; /* Adjust value based on button size + desired spacing */
+    position: relative; /* Needed if using absolute positioning on children, but not needed for fixed */
+}
+
+/* --- Shared Styles (Used on multiple pages) --- */
+.page-header {
+    color: var(--jd-green);
+    background-color: white; /* Give header a background */
+    padding: 15px 20px;
+    text-align: center;
+    width: 100%; /* Make header span full width */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Add subtle shadow */
+    margin: 0 0 30px 0; /* Remove top margin, add bottom */
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+
+/* --- Landing Page Specific Styles (index.html - Clickable Menu) --- */
+.nav-container {
+    max-width: 800px;
+    width: 90%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-list li {
+    margin-bottom: 15px;
+}
+
+/* Style for the main clickable buttons */
+.main-option-button {
+    display: block;
+    width: 100%;
+    padding: 15px 20px;
+    background-color: var(--link-bg);
+    color: var(--jd-green);
+    text-decoration: none;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    box-sizing: border-box;
+}
+
+.main-option-button:hover,
+.main-option-button:focus {
+    background-color: var(--link-hover-bg);
+    color: var(--dark-gray);
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Container for submenu items, hidden by default */
+.submenu-content {
+    list-style: none;
+    padding: 10px 0 0 20px;
+    margin: 5px 0 0 0;
+    /* === THIS LINE ENSURES SUBMENUS ARE HIDDEN ON LOAD === */
+    display: none;
+    /* ==================================================== */
+    border-left: 3px solid var(--jd-green);
+    background-color: #f9f9f9;
+    border-radius: 0 0 5px 5px;
+}
+
+.submenu-content li {
+    margin-bottom: 8px;
+}
+
+.submenu-content a {
+    display: block;
+    padding: 5px 10px;
+    color: var(--jd-green);
+    text-decoration: none;
+    border-radius: 3px;
+    transition: background-color 0.2s ease;
+}
+
+.submenu-content a:hover,
+.submenu-content a:focus {
+    background-color: var(--link-hover-bg);
+    color: var(--dark-gray);
+}
+/* --- End Landing Page Styles --- */
+
+
+/* --- Interactive Content Page Styles (e.g., files/pages/section_XX.html) --- */
+
+/* Adjust body padding for content pages */
+body.content-page {
+    padding: 0 20px 20px 20px; /* Add padding back, but not at top */
+}
+
+/* Main Grid Container */
+.main-grid-container {
+    display: grid;
+    grid-template-columns: 1fr; /* Default: 1 column */
+    gap: var(--grid-gap);
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+/* Container for each interactive section */
+.interactive-section {
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.interactive-section h2 {
+    text-align: center;
+    color: var(--dark-gray);
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+/* Image container */
+.tractor-container {
+    position: relative;
+    display: block;
+    border: 3px solid var(--jd-green);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background-color: white;
+    margin-bottom: 10px;
+}
+
+.tractor-image {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+/* General Hotspot styles */
+.hotspot {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background-color: var(--jd-yellow);
+    color: var(--jd-green);
+    border: 1px solid var(--jd-green);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    z-index: 10;
+    transform: translate(-50%, -50%); /* Precise centering */
+}
+
+.hotspot:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+/* --- Hotspot Specific Positioning --- */
+/* Add specific rules here for each page/section */
+/* Replace placeholder values with actual percentages found using Dev Tools */
+
+/* === Page: section_01.html ================================================================== */
+/* --- Section 1 (Front Console) --- */
+.interactive-section[data-section-id="1"] .hotspot[data-letter="A"] {top: 87%; left: 34%;}
+.interactive-section[data-section-id="1"] .hotspot[data-letter="B"] {top: 55%; left: 12%;}
+.interactive-section[data-section-id="1"] .hotspot[data-letter="C"] {top: 21%; left: 4%;}
+.interactive-section[data-section-id="1"] .hotspot[data-letter="D"] {top: 27%; left: 16%;}
+.interactive-section[data-section-id="1"] .hotspot[data-letter="E"] {top: 33%; left: 35%;}
+.interactive-section[data-section-id="1"] .hotspot[data-letter="F"] {top: 6%; left: 92%;}
+.interactive-section[data-section-id="1"] .hotspot[data-letter="G"] {top: 21%; left: 92%;}
+.interactive-section[data-section-id="1"] .hotspot[data-letter="H"] {top: 62%; left: 80%;}
+.interactive-section[data-section-id="1"] .hotspot[data-letter="I"] {top: 75%; left: 76%;}
+.interactive-section[data-section-id="1"] .hotspot[data-letter="J"] {top: 67%; left: 17%;}
+/* --- Section 2 (Foot-Operated Controls) --- */
+.interactive-section[data-section-id="2"] .hotspot[data-letter="A"] {top: 73%; left: 8%;}
+.interactive-section[data-section-id="2"] .hotspot[data-letter="B"] {top: 90.5%; left: 33%;}
+.interactive-section[data-section-id="2"] .hotspot[data-letter="C"] {top: 73%; left: 67.7%;}
+.interactive-section[data-section-id="2"] .hotspot[data-letter="D"] {top: 89%; left: 93%;}
+/* --- Section 3 (Rear Controls) --- */
+.interactive-section[data-section-id="3"] .hotspot[data-letter="A"] {top: 25%; left: 48%;}
+/* === End of Page: section_01.html =========================================================== */
+
+/* === Page: section_02.html ================================================================== */
+/* --- Section 4 (Pickup Hitch Control) --- */
+.interactive-section[data-section-id="4"] .hotspot[data-letter="A"] {top: 26%; left: 16%;}
+.interactive-section[data-section-id="4"] .hotspot[data-letter="B"] {top: 79%; left: 7%;}
+.interactive-section[data-section-id="4"] .hotspot[data-letter="C"] {top: 94%; left: 14%;}
+.interactive-section[data-section-id="4"] .hotspot[data-letter="D"] {top: 88%; left: 37%;}
+.interactive-section[data-section-id="4"] .hotspot[data-letter="E"] {top: 82%; left: 52%;}
+.interactive-section[data-section-id="4"] .hotspot[data-letter="F"] {top: 65%; left: 44%;}
+.interactive-section[data-section-id="4"] .hotspot[data-letter="G"] {top: 52%; left: 50%;}
+.interactive-section[data-section-id="4"] .hotspot[data-letter="H1"] {top: 44%; left: 55%;}
+.interactive-section[data-section-id="4"] .hotspot[data-letter="H2"] {top: 53%; left: 56%;}
+.interactive-section[data-section-id="4"] .hotspot[data-letter="I"] {top: 13%; left: 34%;}
+.interactive-section[data-section-id="4"] .hotspot[data-letter="J"] {top: 39%; left: 65%;}
+.interactive-section[data-section-id="4"] .hotspot[data-letter="K"] {top: 4%; left: 46%;}
+.interactive-section[data-section-id="4"] .hotspot[data-letter="L"] {top: 4%; left: 64%;}
+.interactive-section[data-section-id="4"] .hotspot[data-letter="M"] {top: 38%; left: 76%;}
+.interactive-section[data-section-id="4"] .hotspot[data-letter="N"] {top: 32%; left: 81%;}
+.interactive-section[data-section-id="4"] .hotspot[data-letter="O"] {top: 42%; left: 83%;}
+.interactive-section[data-section-id="4"] .hotspot[data-letter="P"] {top: 22%; left: 94%;}
+.interactive-section[data-section-id="4"] .hotspot[data-letter="Q"] {top: 78%; left: 94%;}
+.interactive-section[data-section-id="4"] .hotspot[data-letter="R"] {top: 4%; left: 54%;}
+.interactive-section[data-section-id="4"] .hotspot[data-letter="S"] {top: 58%; left: 69%;}
+/* --- Section 5 (Mechanical Hitch Control) --- */
+.interactive-section[data-section-id="5"] .hotspot[data-letter="A"] {top: 26%; left: 16%;}
+.interactive-section[data-section-id="5"] .hotspot[data-letter="B"] {top: 79%; left: 7%;}
+.interactive-section[data-section-id="5"] .hotspot[data-letter="C"] {top: 94%; left: 14%;}
+.interactive-section[data-section-id="5"] .hotspot[data-letter="D"] {top: 88%; left: 37%;}
+.interactive-section[data-section-id="5"] .hotspot[data-letter="E"] {top: 82%; left: 52%;}
+.interactive-section[data-section-id="5"] .hotspot[data-letter="F"] {top: 65%; left: 44%;}
+.interactive-section[data-section-id="5"] .hotspot[data-letter="G"] {top: 52%; left: 50%;}
+.interactive-section[data-section-id="5"] .hotspot[data-letter="H"] {top: 42%; left: 49%;}
+.interactive-section[data-section-id="5"] .hotspot[data-letter="I"] {top: 33%; left: 53%;}
+.interactive-section[data-section-id="5"] .hotspot[data-letter="J"] {top: 39%; left: 65%;}
+.interactive-section[data-section-id="5"] .hotspot[data-letter="K"] {top: 4%; left: 46%;}
+.interactive-section[data-section-id="5"] .hotspot[data-letter="L"] {top: 4%; left: 64%;}
+.interactive-section[data-section-id="5"] .hotspot[data-letter="M"] {top: 38%; left: 76%;}
+.interactive-section[data-section-id="5"] .hotspot[data-letter="N"] {top: 32%; left: 81%;}
+.interactive-section[data-section-id="5"] .hotspot[data-letter="O"] {top: 42%; left: 83%;}
+.interactive-section[data-section-id="5"] .hotspot[data-letter="P"] {top: 22%; left: 94%;}
+.interactive-section[data-section-id="5"] .hotspot[data-letter="Q"] {top: 78%; left: 94%;}
+.interactive-section[data-section-id="5"] .hotspot[data-letter="R"] {top: 4%; left: 54%;}
+.interactive-section[data-section-id="5"] .hotspot[data-letter="S"] {top: 58%; left: 69%;}
+.interactive-section[data-section-id="5"] .hotspot[data-letter="T"] {top: 4%; left: 30%;}
+/* === End of Page: section_02.html =========================================================== */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==================================EXAMPLE=================================================== */
+/* === Page: section_xx.html ================================================================== */
+
+/* --- Section NUMBER (Picture tag - Title) --- */
+.interactive-section[data-section-id="NUMBER"] .hotspot[data-letter="LETTER"] { /* top: 50%; left: 50%; */ }
+
+/* === End of Page: section_01.html =========================================================== */
+
+/* --- End Hotspot Specific Positioning --- */
+
+
+/* Tooltip styles */
+.tooltip {
+    position: fixed;
+    background-color: var(--tooltip-bg);
+    border: 1px solid var(--jd-green);
+    padding: 8px 12px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    font-size: 0.9em;
+    z-index: 1000;
+    display: none; /* Hidden by default */
+    min-width: 150px;
+    max-width: 250px;
+    pointer-events: none;
+}
+
+.tooltip.visible {
+    display: block;
+}
+
+.tooltip.answer {
+    background-color: var(--jd-green);
+    color: white;
+    font-weight: bold;
+}
+
+/* --- Back Button Styling --- */
+.back-button {
+    display: inline-block; /* Allows padding and centering */
+    padding: 10px 25px;
+    background-color: var(--jd-green);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.back-button:hover,
+.back-button:focus {
+    background-color: #2a6222; /* Darker green */
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* --- Back To Top Button Styling --- */
+.back-to-top-button {
+    display: none; /* Hidden by default */
+    position: fixed;
+    bottom: 20px;
+    /* Place it next to the other fixed button, but maybe slightly lower or adjust */
+    right: 20px;
+    z-index: 999; /* Slightly lower than back-to-menu if needed, or same level */
+    border: none;
+    outline: none;
+    background-color: rgba(54, 124, 43, 0.7); /* Semi-transparent JD Green */
+    color: white;
+    cursor: pointer;
+    padding: 10px 15px; /* Adjust padding */
+    border-radius: 50%; /* Make it round */
+    font-size: 18px; /* Adjust arrow size */
+    line-height: 1; /* Ensure arrow is centered vertically */
+    text-decoration: none;
+    transition: background-color 0.3s, opacity 0.3s, visibility 0.3s;
+    opacity: 0; /* Start invisible for transition */
+    visibility: hidden;
+}
+
+.back-to-top-button.visible {
+    display: block; /* Make it take up space */
+    opacity: 1; /* Fade in */
+    visibility: visible;
+}
+
+.back-to-top-button:hover {
+    background-color: rgba(42, 98, 34, 0.9); /* Darker green on hover */
+}
+
+/* --- Responsive Media Queries --- */
+@media (min-width: 768px) {
+    .main-grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+/* Optional further responsive adjustments */
