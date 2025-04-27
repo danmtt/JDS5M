@@ -292,6 +292,103 @@ body.content-page {
 
 /* --- End Hotspot Specific Positioning --- */
 
+/* --- Lesson Overview Page Styles (files/lessons_overview.html) --- */
+
+.lessons-overview-container { ... }
+.lesson-wheel-image-container { ... }
+.lesson-link-list { ... }
+.lesson-link-list li { ... }
+.lesson-link-list a { ... }
+.lesson-link-list a:hover, .lesson-link-list a:focus { ... }
+
+/* New container for the grid layout */
+.lessons-overview-container-grid {
+    max-width: 1400px; /* Wider max-width for grid */
+    width: 95%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.lessons-overview-container-grid h2 {
+    text-align: center;
+    color: var(--dark-gray);
+    margin-bottom: 30px; /* More space before grid */
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+/* The grid itself */
+.lesson-grid {
+    display: grid;
+    /* Responsive grid - Adjust minmax for desired item size/columns */
+    /* Example: aims for items around 150px wide */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 25px; /* Space between grid items */
+    justify-items: center; /* Center items horizontally within their grid cell */
+}
+
+/* Each item in the grid (link+title container) */
+.lesson-grid-item {
+    display: flex;
+    flex-direction: column; /* Stack image link and title vertically */
+    align-items: center; /* Center content horizontally */
+    text-align: center;
+}
+
+/* The link containing the wheel image */
+.lesson-wheel-link {
+    display: block; /* Make the link a block element */
+    text-decoration: none;
+    margin-bottom: 8px; /* Space between image and title */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border-radius: 50%; /* Make the link area round if desired for hover */
+}
+
+/* Style the wheel image inside the link */
+.lesson-wheel-image {
+    max-width: 100px; /* Control the size of each wheel */
+    height: auto;
+    display: block; /* Remove extra space below image */
+    border-radius: 50%; /* Ensure image is round */
+    border: 2px solid transparent; /* Placeholder for hover effect */
+    transition: border-color 0.2s ease;
+}
+
+/* Hover/focus effect on the link/image */
+.lesson-wheel-link:hover .lesson-wheel-image,
+.lesson-wheel-link:focus .lesson-wheel-image {
+    border-color: var(--jd-green); /* Add green border on hover/focus */
+}
+.lesson-wheel-link:hover,
+.lesson-wheel-link:focus {
+     transform: scale(1.05); /* Slightly enlarge on hover/focus */
+     /* box-shadow: 0 4px 8px rgba(0,0,0,0.15); Optional shadow */
+}
+
+
+/* Style for the title text below the wheel */
+.lesson-title-below {
+    font-size: 0.9em;
+    color: var(--dark-gray);
+    font-weight: 500;
+    /* Optional: control text wrapping if needed */
+    max-width: 150px; /* Match grid item target size */
+    word-wrap: break-word;
+}
+
+
+/* --- Lesson Page Styles (files/lessons/lesson_XX.html) --- */
+/* Styles for .lesson-content-container, .lesson-part etc. remain the same */
+.lesson-content-container { /* ... */ }
+.lesson-part { /* ... */ }
+.lesson-part h2 { /* ... */ }
+.pdf-viewer-container { /* ... */ }
+.audio-player-container audio { /* ... */ }
+
+/* --- End Lesson Styles --- */
 
 /* Tooltip styles */
 .tooltip {
