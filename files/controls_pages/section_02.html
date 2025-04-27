@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Right Console Controls</title> <!-- Make title specific -->
+
+    <!--- INLINE PATH CORRECTION SCRIPT -->
+    <script>
+            // --- START OF INLINE PATH CORRECTION SCRIPT ---
+            (function() { // IIFE to avoid polluting global scope and run immediately
+                const currentPagePath = window.location.pathname;
+                const currentPageHref = window.location.href; // Use href for file:///
+    
+                // This check SHOULD be true on content pages
+                const isNestedPage = currentPageHref.includes('/files/pages/');
+    
+                if (isNestedPage) {
+                    // This block SHOULD run on content pages
+                    console.log("Path Correction: Detected nested page:", currentPageHref);
+                    const rootRelativePrefixes = ['css/', 'js/', 'files/', 'index.html'];
+                    const filesRelativePrefixes = ['img/'];
+                    const fixPath = (element, attributeName) => {
+                        if (!element || !element.hasAttribute(attributeName)) return;
+                        let originalPath = element.getAttribute(attributeName);
+                        if (!originalPath || originalPath.trim() === '' || /^(?:[a-zA-Z]+:|\/|\.\.\/|#|data:)/.test(originalPath)) return;
+                        let newPath = originalPath; let pathCorrected = false;
+                        if (rootRelativePrefixes.some(prefix => originalPath.startsWith(prefix))) { newPath = `../../${originalPath}`; pathCorrected = true; }
+                        else if (filesRelativePrefixes.some(prefix => originalPath.startsWith(prefix))) { newPath = `../${originalPath}`; pathCorrected = true; }
+                        if (pathCorrected) { element.setAttribute(attributeName, newPath); console.log(`Path Correction: Set ${attributeName} for ${element.tagName} to: ${newPath}`); }
+                    };
+                    try {
+                        // Attempt to fix CSS path immediately if needed (if link tag comes after script)
+                        document.querySelectorAll('link[rel="stylesheet"][href]').forEach(el => fixPath(el, 'href'));
+                        // Cannot fix external scripts loaded AFTER this inline script reliably this way
+                        // document.querySelectorAll('script[src]').forEach(el => fixPath(el, 'src'));
+                        document.querySelectorAll('a[href]').forEach(el => fixPath(el, 'href'));
+                        document.querySelectorAll('img[src]').forEach(el => fixPath(el, 'src'));
+                        console.log("Path correction attempt finished.");
+                    } catch (error) { console.error("Path Correction: Error during path fixing:", error); }
+                } else {
+                     console.log("Path Correction: Not detected as a nested page, skipping corrections.");
+                }
+            })(); // End IIFE for path correction
+    </script>
+    <!-- END OF INLINE PATH CORRECTION SCRIPT -->
+
+    <link rel="stylesheet" href="../../css/styles.css">
+</head>
+<body class="content-page">
+<h1 class="page-header">Right Console Controls</h1> <!-- Make header specific -->
+
+    <!-- Tooltips defined once -->
+    <div class="tooltip" id="question-tooltip"></div>
+    <div class="tooltip answer" id="answer-tooltip"></div>
+
+   <div class="main-grid-container">
+        <!-- Section 4 within this page -->
+        <!-- Added data-section-id="4" -->
+        <div class="interactive-section" data-section-id="4">
+        <h2>Pickup Hitch Control</h2>
+            <div class="tractor-container">
+            <img src="../img/section_02/Pickup Hitch Control.jpg" alt="Pickup Hitch Control" class="tractor-image">
+               <!-- Hotspots with embedded data -->
+               <div class="hotspot" data-letter="A"
+                    data-question="Which levers direct hydraulic fluid to specific attachments like loaders or cultivators?"
+                    data-answer="A - Selective Control Valve Levers">A</div>
+               <div class="hotspot" data-letter="B"
+                    data-question="What single lever might control several functions like loader movement, direction changes, or gear shifts?"
+                    data-answer="B - Multi-Function lever">B</div>
+                <div class="hotspot" data-letter="C"
+                    data-question="What lever selects the primary transmission speed or gear?"
+                    data-answer="C - Gearshift Lever">C</div>
+                <div class="hotspot" data-letter="D"
+                    data-question="Which lever selects a general speed range, like Low, Medium, or High?"
+                    data-answer="D - Range Shift Lever">D</div>
+                <div class="hotspot" data-letter="E"
+                    data-question="What lever engages extremely slow speeds for specialized tasks?"
+                    data-answer="E - Creeper Lever">E</div>
+                <div class="hotspot" data-letter="F"
+                    data-question="Which lever allows you to set and maintain a specific engine speed without using your foot?"
+                    data-answer="F - Hand Throttle">F</div>
+                <div class="hotspot" data-letter="G"
+                    data-question="What switch engages the front wheels to assist the rear wheels for increased traction (4WD)?"
+                    data-answer="G - MFWD Switch">G</div>
+                <div class="hotspot" data-letter="H1"
+                    data-question="Which control adjusts how fast the rear hitch lowers?"
+                    data-answer="H1 - Rear Hitch Rate of Drop Control">H1</div>
+                <div class="hotspot" data-letter="H2"
+                    data-question="Which control sets the maximum raising height for the rear hitch?"
+                    data-answer="H2 - Rear Hitch Height Limit Control">H2</div>
+                <div class="hotspot" data-letter="I"
+                    data-question="What is the main lever used to raise and lower the rear hitch?"
+                     data-answer="I - Rear Hitch Control">I</div>
+                <div class="hotspot" data-letter="J"
+                    data-question="Which switch engages or disengages the power shaft at the rear of the tractor?"
+                    data-answer="J - Rear PTO Engagement Switch">J</div>
+                <div class="hotspot" data-letter="K"
+                    data-question="What switch engages or disengages the power shaft at the front of the tractor (if equipped)?"
+                    data-answer="K - Front PTO Engagement Switch">K</div>
+                <div class="hotspot" data-letter="L"
+                    data-question="Where might you find a switch to engage the PTO from outside the cab, near the hitch?"
+                    data-answer="L - Remote PTO Switch">L</div>
+                <div class="hotspot" data-letter="M"
+                    data-question="What knob fine-tunes the hitch's reaction to soil resistance (draft)?"
+                    data-answer="M - Rear Hitch Draft Control Knob">M</div>
+                <div class="hotspot" data-letter="N"
+                    data-question="What switch is used for checking brake operation during maintenance?"
+                    data-answer="N - Brake Test Switch">N</div>
+                <div class="hotspot" data-letter="O"
+                    data-question="Which switch controls the wiper on the back window?"
+                    data-answer="O - Rear Wiper Switch">O</div>
+                <div class="hotspot" data-letter="P"
+                    data-question="Where can you plug in accessories or implement monitors for power?"
+                    data-answer="P - Power Outlet">P</div>
+                <div class="hotspot" data-letter="Q"
+                    data-question="Which outlet provides power, often for lower-draw items like chargers?"
+                    data-answer="Q - Convenience Outlet">Q</div>
+                <div class="hotspot" data-letter="R"
+                    data-question="What lever selects the rotational speed (e.g., 540/1000 RPM) of the rear PTO shaft?"
+                    data-answer="R - PTO Speed Shift Lever">R</div>
+                <div class="hotspot" data-letter="S"
+                    data-question="What gauge shows the air pressure for trailer brakes?"
+                    data-answer="S - Trailer Brake Air Gauge">S</div>
+		    </div>
+        </div>
+
+        <!-- Section 5 within this page -->
+        <!-- Added data-section-id="5" -->
+        <div class="interactive-section" data-section-id="5">
+        <h2>Mechanical Hitch Control</h2>
+            <div class="tractor-container">
+            <img src="../img/section_02/Mechanical Hitch Control.jpg" alt="Mechanical Hitch Control" class="tractor-image">
+                <!-- Hotspots with embedded data -->
+        	    <div class="hotspot" data-letter="A"
+                    data-question="Which levers direct hydraulic fluid to specific attachments like loaders or cultivators?"
+                    data-answer="A - Selective Control Valve Levers">A</div>
+                <div class="hotspot" data-letter="B"
+                    data-question="What single lever might control several functions like loader movement, direction changes, or gear shifts?"
+                    data-answer="B - Multi Function Lever">B</div>
+                <div class="hotspot" data-letter="C"
+                    data-question="What lever selects the primary transmission speed or gear?"
+                    data-answer="C - Gearshift Lever">C</div>
+                <div class="hotspot" data-letter="D"
+                    data-question="Which lever selects a general speed range, like Low, Medium, or High?"
+                    data-answer="D - Range Shift Lever">D</div>
+                <div class="hotspot" data-letter="E"
+                    data-question="What lever engages extremely slow speeds for specialized tasks?"
+                    data-answer="E - Creeper Lever">E</div>
+                <div class="hotspot" data-letter="F"
+                    data-question="Which lever allows you to set and maintain a specific engine speed without using your foot?"
+                    data-answer="F - Hand Throttle">F</div>
+                <div class="hotspot" data-letter="G"
+                    data-question="What switch engages the front wheels to assist the rear wheels for increased traction (4WD)?"
+                    data-answer="G - MFWD Switch">G</div>
+                    <div class="hotspot" data-letter="H"
+                    data-question="Which control adjusts how fast the rear hitch lowers?"
+                    data-answer="H - Hitch Position Lever">H</div>
+                <div class="hotspot" data-letter="I"
+                    data-question="What lever adjusts how the hitch reacts to the pulling force (draft) of an implement in the soil?"
+                    data-answer="I - Draft Sensing Lever">I</div>
+                <div class="hotspot" data-letter="J"
+                    data-question="Which switch engages or disengages the power shaft at the rear of the tractor?"
+                    data-answer="J - Rear PTO Engagement Switch">J</div>
+                <div class="hotspot" data-letter="K"
+                    data-question="What switch engages or disengages the power shaft at the front of the tractor (if equipped)?"
+                    data-answer="K - Front PTO Engagement Switch">K</div>
+                <div class="hotspot" data-letter="L"
+                    data-question="Where might you find a switch to engage the PTO from outside the cab, near the hitch?"
+                    data-answer="L - Remote PTO Switch">L</div>
+                <div class="hotspot" data-letter="M"
+                    data-question="What knob fine-tunes the hitch's reaction to soil resistance (draft)?"
+                    data-answer="M - Rear Hitch Draft Control Knob">M</div>
+                <div class="hotspot" data-letter="N"
+                    data-question="What switch is used for checking brake operation during maintenance?"
+                    data-answer="N - Brake Test Switch">N</div>
+                <div class="hotspot" data-letter="O"
+                    data-question="Which switch controls the wiper on the back window?"
+                    data-answer="O - Rear Wiper Switch">O</div>
+                <div class="hotspot" data-letter="P"
+                    data-question="Where can you plug in accessories or implement monitors for power?"
+                    data-answer="P - Power Outlet">P</div>
+                <div class="hotspot" data-letter="Q"
+                    data-question="Which outlet provides power, often for lower-draw items like chargers?"
+                    data-answer="Q - Convenience Outlet">Q</div>
+                <div class="hotspot" data-letter="R"
+                    data-question="What lever selects the rotational speed (e.g., 540/1000 RPM) of the rear PTO shaft?"
+                    data-answer="R - PTO Speed Shift Lever">R</div>
+                <div class="hotspot" data-letter="S"
+                    data-question="What gauge shows the air pressure for trailer brakes?"
+                    data-answer="S - Trailer Brake Air Gauge">S</div>
+                <div class="hotspot" data-letter="T"
+                        data-question="What adjustable stop limits the travel or sets a return position for the hitch control lever?"
+                    data-answer="T - Hitch Lever Stop">T</div>
+        	</div>
+        </div>
+        
+    </div>
+    <!-- End main-grid-container -->
+
+    <!-- Back to Menu Button -->
+    <!-- Wrapper div for centering -->
+    <div style="text-align: center; margin-top: 30px; margin-bottom: 20px;">
+        <a href="../../index.html" class="back-button">Back to Main Menu</a>
+    </div>
+
+    <!-- Back to Top Button -->
+    <!-- Using an arrow character -->
+    <a href="#" id="backToTopBtn" class="back-to-top-button" title="Go to top">⇧</a>
+
+    <!-- Link to the external JavaScript file -->
+    <script src="../../js/script.js"></script>
+
+</body>
+</html>
