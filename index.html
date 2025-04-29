@@ -3,38 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tractor Controls Interactive Training - Main Menu</title>
+    <title>John Deere Tractor Series 5M - Operator Interactive Training / Landing Page</title>
 
-    <!-- Desktop Browsers / Relative Path -->
-        <link rel="stylesheet" href="css/styles.css">
+    <!-- Links to the external CSS file -->
+    <link rel="stylesheet" href="css/styles.css">
 
 </head>
-<body>
+<!-- Use content-page class for consistent body padding -->
+<body class="content-page">
 
     <!-- Consistent Header -->
     <h1 class="page-header">John Deere Tractor Series 5M - Operator Interactive Training</h1>
-    <div class="nav-container">
-    <div class="lessons-overview-container-grid"> <!-- Changed container class -->
-        <div class="lesson-grid">
-            <div class="lesson-grid-item">
-                <a href="files/controls_overview.html" class="lesson-wheel-link">
-                    <img src="files/link_assets/jd_tractor.png" alt="Lesson 25" class="lesson-wheel-image">
+    <div class="container-grid">
+        <h2>Select a Learning Module:</h2>
+        <div class="menu-grid">        
+            <div class="menu-grid-item">
+                <a href="files/controls_overview.html" class="menu-link">
+                    <img src="files/link_assets/jd_tractor.png" alt="CAB CONTROLS INTERACTION" class="link-image tractor">
                  </a>
-                <div class="lesson-title-below">CAB CONTROLS INTERACTION</div>
+                <div class="menu-link-title">CAB CONTROLS INTERACTION</div>
             </div>             
-            <div class="lesson-grid-item">
-                <a href="files/lessons_overview.html" class="lesson-wheel-link">
-                    <img src="files/link_assets/jd_tractor.png" alt="Lesson 25" class="lesson-wheel-image">
+            <div class="menu-grid-item ">
+                <a href="files/lessons_overview.html" class="menu-link">
+                    <img src="files/link_assets/jd_tractor.png" alt="OPERATOR´S MANUAL LESSONS" class="link-image tractor">
                 </a>
-                <div class="lesson-title-below">OPERATOR´S MANUAL LESSONS</div>
+                <div class="menu-link-title">OPERATOR´S MANUAL LESSONS</div>
             </div>
         </div>
+        <!-- End of menu-grid -->    
     </div>
-</div>    
+    <!-- End of container-grid -->
 
     <!-- Links to the consolidated JavaScript file -->
-
-        <script src="js/script.js"></script>
-
+    <script src="js/script.js"></script>
 </body>
 </html>

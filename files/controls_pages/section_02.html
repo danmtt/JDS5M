@@ -3,52 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Right Console Controls</title> <!-- Make title specific -->
+    <title>Right Console Controls</title>
 
-    <!--- INLINE PATH CORRECTION SCRIPT -->
-    <script>
-            // --- START OF INLINE PATH CORRECTION SCRIPT ---
-            (function() { // IIFE to avoid polluting global scope and run immediately
-                const currentPagePath = window.location.pathname;
-                const currentPageHref = window.location.href; // Use href for file:///
-    
-                // This check SHOULD be true on content pages
-                const isNestedPage = currentPageHref.includes('/files/pages/');
-    
-                if (isNestedPage) {
-                    // This block SHOULD run on content pages
-                    console.log("Path Correction: Detected nested page:", currentPageHref);
-                    const rootRelativePrefixes = ['css/', 'js/', 'files/', 'index.html'];
-                    const filesRelativePrefixes = ['img/'];
-                    const fixPath = (element, attributeName) => {
-                        if (!element || !element.hasAttribute(attributeName)) return;
-                        let originalPath = element.getAttribute(attributeName);
-                        if (!originalPath || originalPath.trim() === '' || /^(?:[a-zA-Z]+:|\/|\.\.\/|#|data:)/.test(originalPath)) return;
-                        let newPath = originalPath; let pathCorrected = false;
-                        if (rootRelativePrefixes.some(prefix => originalPath.startsWith(prefix))) { newPath = `../../${originalPath}`; pathCorrected = true; }
-                        else if (filesRelativePrefixes.some(prefix => originalPath.startsWith(prefix))) { newPath = `../${originalPath}`; pathCorrected = true; }
-                        if (pathCorrected) { element.setAttribute(attributeName, newPath); console.log(`Path Correction: Set ${attributeName} for ${element.tagName} to: ${newPath}`); }
-                    };
-                    try {
-                        // Attempt to fix CSS path immediately if needed (if link tag comes after script)
-                        document.querySelectorAll('link[rel="stylesheet"][href]').forEach(el => fixPath(el, 'href'));
-                        // Cannot fix external scripts loaded AFTER this inline script reliably this way
-                        // document.querySelectorAll('script[src]').forEach(el => fixPath(el, 'src'));
-                        document.querySelectorAll('a[href]').forEach(el => fixPath(el, 'href'));
-                        document.querySelectorAll('img[src]').forEach(el => fixPath(el, 'src'));
-                        console.log("Path correction attempt finished.");
-                    } catch (error) { console.error("Path Correction: Error during path fixing:", error); }
-                } else {
-                     console.log("Path Correction: Not detected as a nested page, skipping corrections.");
-                }
-            })(); // End IIFE for path correction
-    </script>
-    <!-- END OF INLINE PATH CORRECTION SCRIPT -->
-
+    <!-- Links to the external CSS file -->
     <link rel="stylesheet" href="../../css/styles.css">
+
 </head>
+<!-- Use content-page class for consistent body padding -->
 <body class="content-page">
-<h1 class="page-header">Right Console Controls</h1> <!-- Make header specific -->
+    
+    <!-- Back to Menu Button -->
+    <div class="back-button-container"> <!-- Container div for centering -->
+        <!-- Back to main menu button / Path: Up two levels from files/controls_pages/ to root index.html -->
+        <a href="../../index.html" class="back-button">Back to Main Menu</a>
+    </div>
+
+    <h1 class="page-header">Right Console Controls</h1> <!-- Make header specific -->
 
     <!-- Tooltips defined once -->
     <div class="tooltip" id="question-tooltip"></div>
@@ -197,12 +167,6 @@
         
     </div>
     <!-- End main-grid-container -->
-
-    <!-- Back to Menu Button -->
-    <!-- Wrapper div for centering -->
-    <div style="text-align: center; margin-top: 30px; margin-bottom: 20px;">
-        <a href="../../index.html" class="back-button">Back to Main Menu</a>
-    </div>
 
     <!-- Back to Top Button -->
     <!-- Using an arrow character -->

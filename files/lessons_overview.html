@@ -3,77 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tractor Controls Interactive Training - Main Menu</title>
+    <title>Operator´s Manual Lessons - Overview</title>
     
     <!-- Links to the external CSS file -->
-        <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/styles.css">
 
 </head>
-<body class="content-page"> <!-- Use content-page class for consistent body padding -->
+<!-- Use content-page class for consistent body padding -->
+<body class="content-page">
 
-    <!-- Path: Up one level from files/ to root index.html -->
-    <a href="../index.html" class="back-button">Back to Main Menu</a>
+    <!-- Back to Menu Button -->
+    <div class="back-button-container"> <!-- Container div for centering -->
+        <!-- Back to main menu button / Path: Up one level from files/ to root index.html -->
+        <a href="../index.html" class="back-button">Back to Main Menu</a>
+    </div>
 
+    <!-- Consistent Header -->
     <h1 class="page-header">OPERATOR´S MANUAL LESSONS</h1>
 
-    <div class="lessons-overview-container-grid"> <!-- Changed container class -->
-
-        <h2>Select a Lesson:</h2>
-
-        <div class="lesson-grid">
-            <!-- === Repeat this block for all 25 lessons === -->
-
+    <div class="container-grid">
+        <h2>Select a Lesson:</h2>    
+        <div class="menu-grid">              
             <!-- Lesson 1 -->
-            <div class="lesson-grid">
-                <a href="lessons_pages/Lesson 01_Introduction/lesson_01.html" class="lesson-wheel-link">
-                    <!-- Path: Up one level from files/ to root, then into files/lesson_assets/ -->
-                    <!-- !! Replace jd_wheel.png with your actual image filename !! -->
-                    <img src="link_assets/jd_wheel.png" alt="Lesson 1" class="lesson-wheel-image">
+            <div class="menu-grid-item">
+                <a href="lessons_pages/Lesson 01_Introduction/lesson_01.html" class="menu-link">
+                    <img src="link_assets/jd_wheel.png" alt="Lesson 1" class="link-image wheel">
                 </a>
-                <div class="lesson-title-below">Lesson 1: Title of Lesson 1</div>
+                <div class="menu-link-title">Lesson 1: Introduction</div>
             </div>
-
             <!-- Lesson 2 -->
-            <div class="lesson-grid-item">
-                <a href="lessons_pages/lesson_02/lesson_02.html" class="lesson-wheel-link">
-                    <img src="link_assets/jd_wheel.png" alt="Lesson 2" class="lesson-wheel-image">
+            <div class="menu-grid-item">
+                <a href="lessons_pages/Lesson 01_Introduction/lesson_01.html" class="menu-link">
+                    <img src="link_assets/jd_wheel.png" alt="Lesson 1" class="link-image wheel">
                 </a>
-                <div class="lesson-title-below">Lesson 2: Title of Lesson 2</div>
-            </div>
-       
+                <div class="menu-link-title">Lesson 1: Introduction</div>
+            </div>    
             <!-- Lesson 3 -->
-            <div class="lesson-grid-item">
-                <a href="lessons_pages/lesson_03/lesson_03.html" class="lesson-wheel-link">
-                     <img src="link_assets/jd_wheel.png" alt="Lesson 3" class="lesson-wheel-image">
+            <div class="menu-grid-item">
+                <a href="lessons_pages/Lesson 01_Introduction/lesson_01.html" class="menu-link">
+                    <img src="link_assets/jd_wheel.png" alt="Lesson 1" class="link-image wheel">
                 </a>
-                <div class="lesson-title-below">Lesson 3: Title of Lesson 3</div>
+                <div class="menu-link-title">Lesson 1: Introduction</div>
             </div>
-
-            <!-- ... Add grid items for Lessons 4 through 25 ... -->
-
-            <!-- Example Lesson 25 -->
-             <div class="lesson-grid-item">
-                 <a href="lessons_pages/lesson_25/lesson_25.html" class="lesson-wheel-link">
-                     <img src="link_assets/jd_wheel.png" alt="Lesson 25" class="lesson-wheel-image">
-                 </a>
-                 <div class="lesson-title-below">Lesson 25: Title of Lesson 25</div>
-             </div>
-
-             <!-- End Repeat Block -->
-        </div> <!-- End lesson-grid -->
-
-    </div> <!-- End lessons-overview-container-grid -->
-
+            <!-- ... Add grid items for Lessons 4 through 26 ... -->
+            <!-- Lesson 4 -->
+            <!-- Lesson 4 -->
+            <!-- Lesson 4 -->
+            <!-- Lesson 4 -->
+            <!-- Lesson 4 -->
+            <!-- Lesson 4 -->
+                <!-- Lesson 10 -->
+            <!-- Lesson 4 -->
+            <!-- Lesson 4 -->
+            <!-- Lesson 4 -->
+            <!-- Lesson 4 -->
+            <!-- Lesson 4 -->
+            <!-- Lesson 4 -->
+            <!-- Lesson 4 -->
+            <!-- Lesson 4 -->
+            <!-- Lesson 4 -->
+                <!-- Lesson 20 -->
+            <!-- Lesson 4 -->
+            <!-- Lesson 4 -->
+            <!-- Lesson 4 -->
+            <!-- Lesson 4 -->
+            <!-- Lesson 4 -->
+            <!-- Lesson 26 -->
+        </div>
+        <!-- End of menu-grid -->
+    </div>
+    <!-- End of container-grid -->
 
     <!-- Back to Top Button -->
-    <a href="#" id="backToTopBtn" class="back-to-top-button" title="Go to top">&#8679;</a>
-
+    <a href="#" id="backToTopBtn" class="back-to-top-button" title="Go to top">⇧</a>
+    
     <!-- Path: Up one level from files/ to root, then into js/ -->
-    <script src="../js/script.js"></script> <!-- Needed for Back to Top Button -->
+    <script src="../js/script.js"></script>
 
 </body>
-
-    <!-- Links to the consolidated JavaScript file -->
-
-        <script src="../../js/script.js"></script>
 </html>
