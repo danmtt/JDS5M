@@ -127,7 +127,6 @@ body.content-page {padding: 0px 20px 20px 20px;
     font-size: 0.9em;
     font: bold;
     color: var(--jd-green);
-    font-weight: 500;
     /* Optional: control text wrapping if needed */
     max-width: 150px; /* Match grid item target size */
     word-wrap: break-word;
@@ -136,7 +135,83 @@ body.content-page {padding: 0px 20px 20px 20px;
 /* --- End of Menu Styles --- */
 
 /* ============================================================================================ */
-/* --- Landing Page Specific Styles --- */
+/* --- Landing Page Specific Styles (files/lessons/lesson_XX/lesson_XX.html) --- */
+/* ============================================================================================ */
+
+/* Adjust body styles for lessons pages.*/
+
+body.lesson-page { 
+    display: block; /* Use block layout for lesson pages */
+ }
+
+/* Container for the main lesson content (PDF + Audio) */
+.lesson-content-container {
+    /* max-width: 1400px;  Adjust width as desired */
+    width: 95%;
+    margin: 20px auto; /* Center the container */
+    padding: 20px;
+    background-color: #fff; /* White background for content area */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.lesson-content-container h2 {
+    text-align: center;
+    color: var(--jd-green);
+    margin-bottom: 30px; /* More space before grid */
+    border-bottom: 1px solid var(--border-color);   
+    padding-bottom: 8px;  
+}
+
+/* Styling for the PDF viewer area */
+.pdf-viewer-container {
+    margin-bottom: 30px; /* Space between PDF and Audio */
+    border: 1px solid #ccc; /* Optional border */
+    background-color: #eee; /* Background color if PDF fails to load */
+        /* --- Adjust height --- */
+    /* Use viewport height units (vh) minus estimated header/button heights */
+    /* Example: 100vh (full height) - ~60px (header) - ~50px (audio) - ~40px (margins/padding) */
+    height: 96vh; /* Adjust as needed */
+    /* min-height: 500px; /* Keep a minimum */
+    /* min-height: 600px; /* Ensure it has height even if PDF fails */
+    /* display: flex; /* Use flexbox for fallback content centering */
+    /* flex-direction: column; /* Stack embed and fallback vertically */
+}
+
+.pdf-viewer-container embed {
+    display: block; /* Ensure embed takes block layout */
+    /* Make the embed/iframe fill the container height */
+    height: 100%;
+    width: 100%; /* Already set in HTML */
+}
+
+
+
+.pdf-viewer-container p { /* Style for fallback text */
+    text-align: center;
+    padding: 20px;
+    color: #555;
+}
+.pdf-viewer-container a {
+    color: var(--jd-green);
+}
+
+
+/* Styling for the Audio player area */
+.audio-player-container {
+    /* Add padding/margin if needed */
+}
+
+.audio-player-container audio {
+    width: 100%; /* Make audio player responsive */
+    display: block; /* Ensure it takes full width */
+    margin-top: 10px; /* Space below heading */
+}
+
+/* --- End Lesson Page Styles --- */
+
+/* ============================================================================================ */
+/* --- LESSONS INTERACTION - Lessons pages Specific Styles --- */
 /* ============================================================================================ */
 
 
@@ -347,6 +422,8 @@ body.content-page {padding: 0px 20px 20px 20px;
 /* --- Back Button Styling --- */
 
 .back-button-container {
+    display: flex;
+    gap: 10px;
     text-align: center;
     margin-top: 30px;
     margin-bottom: 20px;
