@@ -186,5 +186,79 @@ document.addEventListener('DOMContentLoaded', () => {
         toggleBackToTopButton(); // Initial check
     } // End of Back To Top Button check
 
+    // --- Section 4: Collapsible Lesson Content Logic (Single Open Accordion) ---
+    const collapsibleSections = document.querySelectorAll('.collapsible-section'); // Get all sections
+
+    // Function to close ALL sections except the one specified (optional)
+    const closeAllSections = (exceptSection = null) => {
+        collapsibleSections.forEach(section => {
+            if (section !== exceptSection) {
+                const content = section.querySelector('.collapsible-content');
+                const button = section.querySelector('.toggle-button');
+                const arrow = button?.querySelector('.arrow'); // Use optional chaining
+
+                if (content && button && arrow && button.getAttribute('data-state') === 'open') {
+                    content.style.display = 'none';
+                    button.setAttribute('data-state', 'closed');
+                    button.setAttribute('aria-expanded', 'false');
+                    arrow.textContent = '▶'; // Right arrow
+                }
+            }
+        });
+    };
+
+    // Function to handle toggling for a specific section
+    const toggleSingleCollapsible = (sectionToToggle) => {
+        if (!sectionToToggle) return;
+
+        const content = sectionToToggle.querySelector('.collapsible-content');
+        const button = sectionToToggle.querySelector('.toggle-button');
+        const arrow = button?.querySelector('.arrow');
+
+        if (!content || !button || !arrow) return;
+
+        const currentState = button.getAttribute('data-state');
+
+        if (currentState === 'closed') {
+            // --- It's closed, so we want to OPEN it ---
+            // 1. Close all OTHER sections first
+            closeAllSections(sectionToToggle);
+
+            // 2. Open the target section
+            content.style.display = 'block';
+            button.setAttribute('data-state', 'open');
+            button.setAttribute('aria-expanded', 'true');
+            arrow.textContent = '▼'; // Down arrow
+
+        } else {
+            // --- It's open, so we want to CLOSE it ---
+            // (No need to close others, just close this one)
+            content.style.display = 'none';
+            button.setAttribute('data-state', 'closed');
+            button.setAttribute('aria-expanded', 'false');
+            arrow.textContent = '▶'; // Right arrow
+        }
+    };
+
+    // Add click listener to each HEADER (acting as the main trigger)
+    collapsibleSections.forEach(section => {
+         const header = section.querySelector('.collapsible-header');
+         const button = section.querySelector('.toggle-button');
+
+         if (header) {
+            header.addEventListener('click', () => {
+                toggleSingleCollapsible(section);
+            });
+         }
+         // Also allow clicking the button directly, but prevent double toggling
+         if(button) {
+            button.addEventListener('click', (event) => {
+                 event.stopPropagation(); // Stop click from bubbling to header if header also has listener
+                 toggleSingleCollapsible(section);
+            });
+         }
+    });
+
+    // --- End Collapsible Lesson Content Logic ---
 
 }); // End of DOMContentLoaded listener

@@ -3,45 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- === CHANGE Title === -->
-    <title>Lesson 01: Introduction</title>
-    <!-- Path: Up THREE levels from files/lessons/lesson_XX/ to root, then into css/ -->
+
+<!-- === CHANGE HTML Title === -->
+    <title>Lesson 1: Introduction</title>
+
+<!-- Path: Up THREE levels from files/lessons/lesson_XX/ to root, then into css/ -->
     <link rel="stylesheet" href="../../../css/styles.css">
+
 </head>
-<body class="content-page lesson-page"> <!-- Added 'lesson-page' class for potential specific styling -->
+<body class="content-page lesson-page">
 
     <!-- Back to Overview/Menu Button -->
-    <div class="back-button-container"> <!-- Container div for centering -->
-    <!-- Option 1: Link back to lesson overview -->
-     <a href="../../lessons_overview.html" class="back-button">Back to Lessons Overview</a>
-    <!-- Option 2: Link back to main index (uncomment if preferred) -->
-    <a href="../../../index.html" class="back-button">Back to Main Menu</a>
+    <div class="back-button-container">
+        <!-- Option 1: Link back to lesson overview -->
+        <a href="../../lessons_overview.html" class="back-button">Back to Lessons Overview</a>
+        <!-- Option 2: Link back to main index -->
+        <a href="../../../index.html" class="back-button">Back to Main Menu</a>
     </div>
 
-    <!-- === CHANGE Header Text === -->
-    <h1 class="page-header">Lesson 01:<br/>Introduction</h1>
-
-    <div class="lesson-content-container"> <!-- Wrapper for lesson elements -->
+<!-- === CHANGE Lesson Title Text === -->
+    <h1 class="page-header">Lesson 1:<br/>Introduction</h1>
+    
+    <!-- Wrapper for lesson elements -->
+    <div class="lesson-content-container">
 
         <!-- Audio Player Section -->
         <div class="audio-player-container">
-            <h2>Lesson 01: The Podcast</h2>
-           <audio controls src="01_JDS5M_Introduction_Podcast.mp3" preload="yes">
-           </audio>
-       </div>
+            <h2>The Podcast</h2>
+            
+<!-- === CHANGE MP3 Filename === -->
+            <audio controls src="01_JDS5M_Introduction_Podcast.mp3">
+            </audio>
+
+        </div>
+
         <!-- PDF Viewer Section -->
         <div class="pdf-viewer-container">
-             <h2>Lesson 01: The PDF Manual</h2>
+            <h2>The PDF Manual</h2>
+
+<!-- === CHANGE PDF Filename / No app layout: #view=FitH&toolbar=0&navpanes=0 === -->
             <embed src="01_JDS5M_Introduction_(6pgs).pdf#view=FitH&toolbar=0&navpanes=0" type="application/pdf" width="100%" height="700px">
             </embed>
-        </div>
-    </div> <!-- End lesson-content-container -->
 
+        </div>
+
+    </div>
+    <!-- End lesson-content-container -->
 
     <!-- Back to Top Button (Functionality from script.js) -->
     <a href="#" id="backToTopBtn" class="back-to-top-button" title="Go to top">&#8679;</a>
 
-    <!-- Path: Up THREE levels from files/lessons/lesson_XX/ to root, then into js/ -->
+<!-- Path: Up THREE levels from files/lessons/lesson_XX/ to root, then into js/ -->
     <script src="../../../js/script.js"></script>
 
 </body>

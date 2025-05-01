@@ -124,8 +124,8 @@ body.content-page {padding: 0px 20px 20px 20px;
 }
 /* The title text below the link */
 .menu-link-title {
-    font-size: 0.9em;
-    font: bold;
+    font-size: 1.1em;
+    font-weight: bold;
     color: var(--jd-green);
     /* Optional: control text wrapping if needed */
     max-width: 150px; /* Match grid item target size */
@@ -163,6 +163,79 @@ body.lesson-page {
     padding-bottom: 8px;  
 }
 
+/* Individual Collapsible Section */
+.collapsible-section {
+    background-color: #fff; /* White background */
+    margin-bottom: 20px; /* Space between sections */
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+    overflow: hidden; /* Helps contain content */
+}
+
+/* Header for the collapsible section */
+.collapsible-header {
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+    padding: 15px 20px;
+    cursor: pointer; /* Indicate header is clickable */
+    border-bottom: 1px solid var(--border-color);
+    background-color: #fdfdfd; /* Slightly off-white header */
+    transition: background-color 0.2s ease;
+}
+.collapsible-header:hover {
+    background-color: #f5f5f5;
+}
+
+.collapsible-header h2 {
+    margin: 0;
+    font-size: 1.2em; /* Adjust title size */
+    color: var(--jd-green);
+    border-bottom: none; /* Remove default h2 border */
+    padding-bottom: 0;
+}
+
+/* Toggle Button (Arrow) */
+.toggle-button {
+    background: none;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    font-size: 1.5em; /* Arrow size */
+    line-height: 1;
+    color: var(--jd-green);
+    transition: transform 0.3s ease; /* Smooth arrow rotation */
+}
+
+/* Arrow styling within the button */
+.toggle-button .arrow {
+     display: inline-block; /* Needed for transform */
+     transition: transform 0.3s ease;
+}
+
+/* Rotate arrow when button/section is open */
+.toggle-button[data-state="open"] .arrow {
+    transform: rotate(90deg);
+}
+
+/* Content Area (Initially Hidden) */
+.collapsible-content {
+    padding: 20px;
+    border-top: 1px solid var(--border-color); /* Line below header */
+    display: none;
+    /* Optional: Smooth transition for height (requires more complex JS) */
+    /* transition: max-height 0.3s ease-out; */
+    /* max-height: 0; */
+    /* overflow: hidden; */
+}
+
+/* Style for content when visible */
+/* .collapsible-content.visible {
+     /* display: block; JS handles this */
+     /* For smooth height transition (more advanced) */
+     /* max-height: 1500px; Adjust to generous max height */
+/* } */ */
+
 /* Styling for the PDF viewer area */
 .pdf-viewer-container {
     margin-bottom: 30px; /* Space between PDF and Audio */
@@ -171,21 +244,18 @@ body.lesson-page {
         /* --- Adjust height --- */
     /* Use viewport height units (vh) minus estimated header/button heights */
     /* Example: 100vh (full height) - ~60px (header) - ~50px (audio) - ~40px (margins/padding) */
-    height: 96vh; /* Adjust as needed */
+    /* height: 96vh; Adjust as needed */
     /* min-height: 500px; /* Keep a minimum */
     /* min-height: 600px; /* Ensure it has height even if PDF fails */
     /* display: flex; /* Use flexbox for fallback content centering */
     /* flex-direction: column; /* Stack embed and fallback vertically */
 }
-
 .pdf-viewer-container embed {
     display: block; /* Ensure embed takes block layout */
     /* Make the embed/iframe fill the container height */
-    height: 100%;
+    height: 93vh; /* Adjust as needed */
     width: 100%; /* Already set in HTML */
 }
-
-
 
 .pdf-viewer-container p { /* Style for fallback text */
     text-align: center;
@@ -195,13 +265,17 @@ body.lesson-page {
 .pdf-viewer-container a {
     color: var(--jd-green);
 }
-
-
-/* Styling for the Audio player area */
-.audio-player-container {
-    /* Add padding/margin if needed */
+.pdf-viewer-container h3, /* Style sub-headings if used */
+.audio-player-container h3 {
+     margin-top: 0;
+     margin-bottom: 10px;
+     font-size: 1em;
+     color: var(--jd-green);
 }
-
+/* Styling for the Audio player area */
+/* .audio-player-container {
+    /* Add padding/margin if needed */
+/* } */ 
 .audio-player-container audio {
     width: 100%; /* Make audio player responsive */
     display: block; /* Ensure it takes full width */
