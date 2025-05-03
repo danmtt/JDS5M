@@ -207,6 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
+
     // Function to handle toggling for a specific section
     const toggleSingleCollapsible = (sectionToToggle) => {
         if (!sectionToToggle) return;
@@ -221,10 +222,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (currentState === 'closed') {
             // --- It's closed, so we want to OPEN it ---
-            // 1. Close all OTHER sections first
+
+            // 1. Close all OTHER sections first (visually)
             closeAllSections(sectionToToggle);
 
-            // 2. Open the target section
+            // === NEW: Pause all audio elements BEFORE opening the new section ===
+            try {
+                const allAudioElements = document.querySelectorAll('audio'); // Get all audio players
+                allAudioElements.forEach(audio => {
+                    if (!audio.paused) { // Check if it's actually playing
+                        audio.pause();
+                        console.log("Paused audio:", audio.src || "Audio element"); // Optional logging
+                    }
+                });
+            } catch(err) {
+                 console.error("Error pausing audio elements:", err);
+            }
+            // === END NEW AUDIO PAUSE LOGIC ===
+
+
+            // 2. Open the target section (visually)
             content.style.display = 'block';
             button.setAttribute('data-state', 'open');
             button.setAttribute('aria-expanded', 'true');
@@ -237,8 +254,23 @@ document.addEventListener('DOMContentLoaded', () => {
             button.setAttribute('data-state', 'closed');
             button.setAttribute('aria-expanded', 'false');
             arrow.textContent = '▶'; // Right arrow
+
+            // === OPTIONAL: Pause audio in the section being closed ===
+            try {
+                const audioInSection = sectionToToggle.querySelector('audio');
+                 if (audioInSection && !audioInSection.paused) {
+                     audioInSection.pause();
+                     console.log("Paused audio in closing section:", audioInSection.src || "Audio element");
+                 }
+            } catch(err) {
+                console.error("Error pausing audio in closing section:", err);
+            }
+            // === END OPTIONAL PAUSE ===
+
         }
-    };
+    }; // End of toggleSingleCollapsible function
+
+
 
     // Add click listener to each HEADER (acting as the main trigger)
     collapsibleSections.forEach(section => {
