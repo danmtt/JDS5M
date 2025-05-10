@@ -328,10 +328,12 @@ body.lesson-page {
     background-color: #f9f9f9;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    /* overflow: hidden; */
+    overflow: visible; 
     /* === NEW: Force aspect ratio on the item itself === */
-    aspect-ratio: 4 / 3; /* Example: 4:3 aspect ratio. Adjust as needed (e.g., 1/1 for square, 16/9) */
-                       /* This will make both .park-image-item divs have the same shape */
+    /* Example: 4:3 aspect ratio. Adjust as needed (e.g., 1/1 for square, 16/9) */
+    /* This will make both .park-image-item divs have the same shape */
+    /* aspect-ratio: 4 / 3; */
 }
 
 .park-image-item img {
@@ -345,9 +347,14 @@ body.lesson-page {
 
 .image-caption {
     font-size: 0.85em;
-    color: #555;
+    font-weight: bold;
+    color: var(--jd-green);
     margin: 0;
     margin-top: auto; /* Pushes caption to bottom */
+}
+
+.gmaps-link {
+    text-align: center;
 }
 
 
