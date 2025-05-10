@@ -301,7 +301,7 @@ body.lesson-page {
             height: 0;
             overflow: hidden;
             margin-bottom: 20px;
-        }
+}
 .map-container iframe {
             position: absolute;
             top: 0;
@@ -309,7 +309,47 @@ body.lesson-page {
             width: 100%;
             height: 100%;
             border: 0; /* Remove default iframe border */
-        }
+}
+
+/* Ensure the gallery itself distributes space for two items equally */
+.park-image-gallery {
+    display: grid;
+    /* Ensure 2 columns on wider screens */
+    grid-template-columns: 1fr 1fr; /* Forces two equal columns */
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.park-image-item {
+    text-align: center;
+    border: 1px solid #eee;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    /* === NEW: Force aspect ratio on the item itself === */
+    aspect-ratio: 4 / 3; /* Example: 4:3 aspect ratio. Adjust as needed (e.g., 1/1 for square, 16/9) */
+                       /* This will make both .park-image-item divs have the same shape */
+}
+
+.park-image-item img {
+    width: 100%;
+    height: 100%; /* Make image fill the height of the aspect-ratio controlled parent */
+    object-fit: cover; /* Crops to fill, maintaining aspect ratio */
+    display: block;
+    margin-bottom: 8px;
+    border-radius: 3px;
+}
+
+.image-caption {
+    font-size: 0.85em;
+    color: #555;
+    margin: 0;
+    margin-top: auto; /* Pushes caption to bottom */
+}
+
 
 /* ============================================================================================ */
 /* --- CAB CONTROLS INTERACTION - Section Pages Specific Styles --- */

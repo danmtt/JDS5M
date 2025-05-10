@@ -22,7 +22,7 @@
     </div>
 
 <!-- === CHANGE Lesson Title Text === -->
-    <h1 class="page-header">Haringey:<br/>Parks and Low Traffic Neighbourhoods Zones</h1>
+    <h1 class="page-header">The Parks:<br/>Maps and Documents</h1>
 
     <!-- Wrapper for lesson elements -->
     <div class="lesson-content-container">
@@ -35,23 +35,38 @@
                 </button>
 
 <!-- === CHANGE Part 1 Title Text === -->
-                <h2>Main Map</h2>
+                <h2>Parks Locations and LTN´s</h2>
 
             </div>
             <!-- Content to be shown/hidden -->
             <div class="collapsible-content" id="content-part-1">
                 
-
                 <!-- Map Viewer Section -->
-                <div class="pdf-viewer-container">
-                    <h3>The Main Map</h3
+                <div class="map-container">
+                    <!-- <h3>The Main Map</h3 -->
                         >
-<!-- === CHANGE Part 1 PDF Filename / No app layout: #view=FitH&toolbar=0&navpanes=0 === -->
-                    <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1yUhZ4fXlI3b3njqyOw2-ZtWVECM-AUg&ehbc=2E312F&noprof=1" width="640" height="480"></iframe>
+<!-- === CHANGE MAPS Filename / Values === -->
 
+                    <!-- Modify the src URL to include your custom map ID, 
+                         center coordinates and zoom level -->
+
+                    <!-- mid=YOUR_CUSTOM_MAP_ID_HERE
+                         &ll=YOUR_LATITUDE, YOUR_LONGITUDE
+                         &z=YOUR_ZOOM_LEVEL" -->
+
+                        <!-- <iframe src="https://www.google.com/maps/d/embed?mid=1yUhZ4fXlI3b3njqyOw2-ZtWVECM-AUg&ehbc=2E312F" width="640" height="480"></iframe> -->
+                        <!-- &ll=51.58985121431078%2C-0.11690168175242377 -->
+                        <!-- &z=13" -->
+
+                    <iframe
+                        src="https://www.google.com/maps/d/embed?mid=1yUhZ4fXlI3b3njqyOw2-ZtWVECM-AUg&ehbc=2E312F&noprof=1"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
                 </div>
 
-            </div>
+            </div>            
         </div>
         <!-- === End of Part 1 Section === -->
 
@@ -63,34 +78,63 @@
                 </button>
 
 <!-- === CHANGE Part 2 Title Text === -->
-                <h2>The parks</h2>
+                <h2>Chestnuts Park</h2>
 
             </div>
             <!-- Content to be shown/hidden -->
-            <div class="collapsible-content" id="content-part-2">
-                <!-- Audio Player Section -->
-                <div class="audio-player-container">
-                    <h3>The Podcast</h3>
+            <div class="collapsible-content" id="content-part-1">
+                <div class="park-image-gallery">
+                    <div class="park-image-item">
 
-<!-- === CHANGE Part 2 MP3 Filename === -->
-                    <audio controls src="26_JDS5M_Engine Maintenance_Podcast.mp3">
-                    </audio>
+<!-- === REPLACE with actual image paths === -->
+                        <img src="park_image_gallery/01 Google Maps_Chestnuts Park_Roads.jpg" alt="The Roads">
+                        
+                        <p class="image-caption">The Roads</p>
+                    </div>
+                    <div class="park-image-item">
 
+<!-- === REPLACE with actual image paths === -->
+                        <img src="park_image_gallery/01 Google Maps_Chestnuts Park_Terrains.jpg" alt="The Terrains">
+                        
+                        <p class="image-caption">The Terrains</p>
+                    </div>      
                 </div>
-
-                <!-- PDF Viewer Section -->
-                <div class="pdf-viewer-container">
-                    <h3>The PDF Manual</h3>
-
-<!-- === CHANGE Part 2 PDF Filename / No app layout: #view=FitH&toolbar=0&navpanes=0 === -->
-                    <embed src="26_JDS5M_Engine Maintenance_(9pgs)_.pdf#view=FitH&toolbar=0&navpanes=0" type="application/pdf">
-                    </embed>
-
-                </div>
-
             </div>
         </div>
         <!-- End of Part 2 section -->
+
+        <!-- === Part 3 Section === (Functionality from script.js) -->
+        <div class="collapsible-section">
+            <div class="collapsible-header">
+                <button class="toggle-button" data-state="closed" aria-expanded="false" aria-controls="content-part-1">
+                    <span class="arrow">▶</span> <!-- Right arrow initially -->
+                </button>
+
+<!-- === CHANGE Part 3 Title Text === -->
+                <h2>Paignton Road Open Space</h2>
+
+            </div>
+            <!-- Content to be shown/hidden -->
+            <div class="collapsible-content" id="content-part-1">
+                <div class="park-image-gallery">
+                    <div class="park-image-item">
+
+<!-- === REPLACE with actual image paths === -->
+                        <img src="park_image_gallery/02 Google Maps_Paington Park_Roads.jpg" alt="The Roads">
+                        
+                        <p class="image-caption">The Roads</p>
+                    </div>
+                    <div class="park-image-item">
+
+<!-- === REPLACE with actual image paths === -->
+                        <img src="park_image_gallery/02 Google Maps_Paington Park_Terrains.jpg" alt="The Terrains">
+                        
+                        <p class="image-caption">The Terrains</p>
+                    </div>      
+                </div>
+            </div>
+        </div>
+        <!-- End of Part 3 section -->       
 
     </div>
     <!-- End lesson-content-container -->
