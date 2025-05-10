@@ -131,14 +131,15 @@ body.content-page {padding: 0px 20px 20px 20px;
     max-width: 150px; /* Match grid item target size */
     word-wrap: break-word;
 }
-/* ============================================================================================ */
 /* --- End of Menu Styles --- */
 
 /* ============================================================================================ */
-/* --- Landing Page Specific Styles (files/lessons/lesson_XX/lesson_XX.html) --- */
+/* --- Landing Page Specific Styles (files/lessons_pages/lesson_XX/lesson_XX.html) --- */
+/* --- Landing Page Specific Styles (files/maps_pages/maps_review.html) --- */
 /* ============================================================================================ */
 
 /* Adjust body styles for lessons pages.*/
+/* ============================================================================================ */
 
 body.lesson-page { 
     display: block; /* Use block layout for lesson pages */
@@ -284,10 +285,31 @@ body.lesson-page {
 
 /* --- End Lesson Page Styles --- */
 
-/* ============================================================================================ */
-/* --- LESSONS INTERACTION - Lessons pages Specific Styles --- */
+/* Adjust body styles for maps pages.*/
 /* ============================================================================================ */
 
+/* Map pages Styles are shared mainly with Lesson Pages styles but when it comes to
+ the Individual Collapsible Sections, js continues to work the same but with a new element
+ introduce to make the embedded map from google.maps more  */
+
+.map-container {
+            position: relative; /* If you need to position anything over the map */
+            width: 100%;
+            /* Calculate a responsive height, e.g., based on viewport or aspect ratio */
+            padding-bottom: 75%; /* For a 4:3 aspect ratio (height is 75% of width) */
+                                /* Adjust this percentage for desired aspect ratio */
+            height: 0;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+.map-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0; /* Remove default iframe border */
+        }
 
 /* ============================================================================================ */
 /* --- CAB CONTROLS INTERACTION - Section Pages Specific Styles --- */
@@ -456,39 +478,6 @@ body.lesson-page {
 /* === End of Page: section_02.html =========================================================== */
 
 
-/* ==================================EXAMPLE=================================================== */
-/* === Page: section_xx.html ================================================================== */
-
-/* --- Section NUMBER (Picture tag - Title) --- */
-/* .interactive-section[data-section-id="NUMBER"] .hotspot[data-letter="LETTER"] { top: 50%; left: 50%; } */
-
-/* === End of Page: section_xx.html =========================================================== */
-
-/* --- End Hotspot Specific Positioning --- */
-
-/* ============================================================================================ */
-/* --- Lesson Overview Page Styles (files/lessons_overview.html) --- */
-/* ============================================================================================ */
-
-/* CHECK THIS??? */
-/* .lessons-overview-container { ... }
-.lesson-wheel-image-container { ... }
-.lesson-link-list { ... }
-.lesson-link-list li { ... }
-.lesson-link-list a { ... }
-.lesson-link-list a:hover, .lesson-link-list a:focus { ... } */
-/* CHECK THIS??? */
-
-/* --- Lesson Page Styles (files/lessons/lesson_XX.html) --- */
-/* Styles for .lesson-content-container, .lesson-part etc. remain the same */
-/* .lesson-content-container { ... }
-.lesson-part { ... }
-.lesson-part h2 { ... }
-.pdf-viewer-container { ... }
-.audio-player-container audio { ... } */
-
-/* --- End Lesson Styles --- */
-
 /* ============================================================================================ */
 /* --- JS Shared Styles (Used on multiple pages) --- */
 /* ============================================================================================ */
@@ -563,10 +552,50 @@ body.lesson-page {
 
 @media (min-width: 768px) {
     .main-grid-container {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr)
     }
 }
 
 
 
 /* Optional further responsive adjustments */
+
+
+/* ==================================EXAMPLE=================================================== */
+/* === Page: section_xx.html ================================================================== */
+
+/* --- Section NUMBER (Picture tag - Title) --- */
+/* .interactive-section[data-section-id="NUMBER"] .hotspot[data-letter="LETTER"] { top: 50%; left: 50%; } */
+
+/* === End of Page: section_xx.html =========================================================== */
+
+/* --- End Hotspot Specific Positioning --- */
+
+
+/* ============================================================================================ */
+/* --- LESSONS INTERACTION - Lessons pages Specific Styles --- */
+/* ============================================================================================ */
+
+
+/* ============================================================================================ */
+/* --- Lesson Overview Page Styles (files/lessons_overview.html) --- */
+/* ============================================================================================ */
+
+/* CHECK THIS??? */
+/* .lessons-overview-container { ... }
+.lesson-wheel-image-container { ... }
+.lesson-link-list { ... }
+.lesson-link-list li { ... }
+.lesson-link-list a { ... }
+.lesson-link-list a:hover, .lesson-link-list a:focus { ... } */
+/* CHECK THIS??? */
+
+/* --- Lesson Page Styles (files/lessons/lesson_XX.html) --- */
+/* Styles for .lesson-content-container, .lesson-part etc. remain the same */
+/* .lesson-content-container { ... }
+.lesson-part { ... }
+.lesson-part h2 { ... }
+.pdf-viewer-container { ... }
+.audio-player-container audio { ... } */
+
+/* --- End Lesson Styles --- */
